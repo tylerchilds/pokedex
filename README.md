@@ -11,6 +11,10 @@ Types: Display strengths, weakness and pokemon of that type
 Detail: Display Pokemon data, including strengths and weakness and related pokemon.
 
 
+### Development
+
+To start `webpack-dev-server`
+
 ### Credits
 
 Sprites: https://github.com/msikma/pokesprite
