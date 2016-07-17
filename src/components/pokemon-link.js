@@ -9,13 +9,17 @@ export default class PokemonLink extends React.Component {
     const types = pokemon.Types
 
     return (
-      <Link to={`/pokemon/${name.toLowerCase()}`}>
-        <span className={`pkspr pkmn-${name.toLowerCase()}`}></span>
-        <span className="classification">#{number}: {name}</span>
-
-        {types.map((type, key) => (
-          <span className={type.toLowerCase()} key={key}>{type}</span>
-        ))}
+      <Link to={`/pokemon/${name.toLowerCase()}`} className="pokemon">
+        #{number}
+        <div>
+          <span className={`pkspr pkmn-${name.toLowerCase()}`}></span>
+        </div>
+        <p>{name}</p>
+        <div>
+          {types.map((type, key) => (
+            <span className={`type ${type.toLowerCase()}`} key={key}>{type}</span>
+          ))}
+        </div>
       </Link>
     );
   }

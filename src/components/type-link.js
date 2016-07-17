@@ -6,7 +6,7 @@ export default class TypeLink extends React.Component {
     const type = this.props.type.name || this.props.type;
 
     return (
-      <Link to={`/type/${type.toLowerCase()}`} className={`${type.toLowerCase()}`}>{type}</Link>
+      <Link to={`/type/${type.toLowerCase()}`} className={`type ${type.toLowerCase()}`}>{type}</Link>
     );
   }
 }
