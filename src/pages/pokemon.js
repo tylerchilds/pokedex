@@ -4,8 +4,8 @@ import TypeMatchup from '../components/type-matchup';
 import ALL_POKEMON from '../data/pokemon';
 
 export default class Pokemon extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       pokemon: {}

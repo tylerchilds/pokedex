@@ -1,27 +1,28 @@
 import React from 'react';
-import TypeLink from '../components/type-link';
+import PokemonLink from '../components/pokemon-link';
+import ALL_POKEMON from '../data/pokemon';
 
 export default class TypePokemon extends React.Component{
-  render(){
-    let matchups = TypeSanitizer.filterMatchup(this.props.types);
+  componentWillMount(){
+    let type = this.props.type;
+    type = type.charAt(0).toUpperCase() + type.slice(1);
 
-    return (
-      <div>
-        { this._processConditions(matchups.strengths, "Strengths") }
-        { this._processConditions(matchups.weaknesses, "Weaknesses") }
-        { this._processConditions(matchups.immunes, "Immunes") }
-      </div>
-    )
+    const pokemon = ALL_POKEMON.filter((pokemon) =>{
+      return pokemon.Types.indexOf(type) > -1;
+    })
+
+    this.state = { pokemon, type }
   }
 
-  _processConditions(types, title){
-    if(types.length === 0) return;
+  componentDidMount(){
+    PkSpr.process_dom()
+  }
 
+  render(){
     return (
       <div>
-        <h4>{title}</h4>
-        {types.map((type, key) => (
-          <TypeLink type={type} key={key} />
+        {this.state.pokemon.map((pokemon, key) => (
+          <PokemonLink pokemon={pokemon} key={key} />
         ))}
       </div>
     )

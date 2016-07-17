@@ -3,19 +3,21 @@ import TypeLink from '../components/type-link';
 import TypeSanitizer from '../services/type-sanitizer';
 
 export default class TypeMatchup extends React.Component{
-  render(){
-    let matchups = TypeSanitizer.filterMatchup(this.props.types);
+  componentWillMount(){
+    this.state = { matchups: TypeSanitizer.filterMatchup(this.props.types) };
+  }
 
+  render(){
     return (
       <div>
-        { this._processConditions(matchups.strengths, "Strengths") }
-        { this._processConditions(matchups.weaknesses, "Weaknesses") }
-        { this._processConditions(matchups.immunes, "Immunes") }
+        { this._processEffects(this.state.matchups.strengths, "Strengths") }
+        { this._processEffects(this.state.matchups.weaknesses, "Weaknesses") }
+        { this._processEffects(this.state.matchups.immunes, "Immunes") }
       </div>
     )
   }
 
-  _processConditions(types, title){
+  _processEffects(types, title){
     if(types.length === 0) return;
 
     return (
