@@ -28,7 +28,6 @@ export default class Pokemon extends React.Component {
 
   render() {
     const pokemon = this.state.pokemon;
-    let evolution = pokemon["Next Evolution Requirements"]
 
     return (
       <div className="ta-center">
@@ -49,7 +48,6 @@ export default class Pokemon extends React.Component {
             <h4>Information</h4>
             <p>
               Classification: {pokemon.Classification}<br />
-              Evolution: {`${evolution.Amount} ${evolution.Name}`}<br />
               Height: {pokemon.Height}<br />
               Weight: {pokemon.Weight}
             </p>
