@@ -65,7 +65,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d4b41e0ecc5688681728"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c09b3982afe31b337871"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/
@@ -36332,7 +36332,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var pokemon = this.state.pokemon;
-	      var evolution = pokemon["Next Evolution Requirements"];
 
 	      return _react2.default.createElement(
 	        'div',
