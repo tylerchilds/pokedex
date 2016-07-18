@@ -5,7 +5,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ta-center">
-        <h1><Link to="/">Pokémon</Link></h1>
+        <h1><Link to="/">Pokédex</Link></h1>
         {this.props.children}
       </div>
     );
