@@ -28,24 +28,34 @@ export default class Pokemon extends React.Component {
 
   render() {
     const pokemon = this.state.pokemon;
-    const name = pokemon.Name
-    const number = pokemon.Number
-    const types = pokemon.Types
+    let evolution = pokemon["Next Evolution Requirements"]
 
     return (
       <div className="ta-center">
-        <h4>#{number}</h4>
-        <div>
-          <span className={`pkspr pkmn-${name.toLowerCase()}`}></span>
+        <h2>{pokemon.Name}</h2>
+        <div className="grid">
+          <div>
+            <h4>#{pokemon.Number}</h4>
+            <p>
+              <span className={`pkspr pkmn-${pokemon.Name.toLowerCase()}`}></span>
+            </p>
+            <p>
+              {pokemon.Types.map((type, key) => (
+                <TypeLink type={type} key={key} />
+              ))}
+            </p>
+          </div>
+          <div className="ta-left">
+            <h4>Information</h4>
+            <p>
+              Classification: {pokemon.Classification}<br />
+              Evolution: {`${evolution.Amount} ${evolution.Name}`}<br />
+              Height: {pokemon.Height}<br />
+              Weight: {pokemon.Weight}
+            </p>
+          </div>
         </div>
-        <h2>{name}</h2>
-        <div>
-          {types.map((type, key) => (
-            <TypeLink type={type} key={key} />
-          ))}
-        </div>
-        <TypeMatchup types={types} />
-        <hr className="ta-left" />
+        <TypeMatchup types={pokemon.Types} />
       </div>
     )
   }
