@@ -3,19 +3,27 @@ import PokemonLink from '../components/pokemon-link';
 import ALL_POKEMON from '../data/pokemon';
 
 export default class TypePokemon extends React.Component{
-  componentWillMount(){
-    let type = this.props.type;
-    type = type.charAt(0).toUpperCase() + type.slice(1);
+  constructor(props){
+    super();
 
-    const pokemon = ALL_POKEMON.filter((pokemon) =>{
-      return pokemon.Types.indexOf(type) > -1;
-    })
-
-    this.state = { pokemon, type }
+    this.state = { pokemon: this._getPokemon(props.type) }
   }
 
   componentDidMount(){
     PkSpr.process_dom()
+  }
+
+  componentDidUpdate(){
+    for(let p of document.querySelectorAll('.pkspr')){
+      p.innerHTML = '';
+    }
+    PkSpr.process_dom()
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      pokemon: this._getPokemon(props.type),
+    });
   }
 
   render(){
@@ -26,5 +34,13 @@ export default class TypePokemon extends React.Component{
         ))}
       </div>
     )
+  }
+
+  _getPokemon(t){
+    let type = t.charAt(0).toUpperCase() + t.slice(1);
+
+    return ALL_POKEMON.filter((pokemon) =>{
+      return pokemon.Types.indexOf(type) > -1;
+    })
   }
 }

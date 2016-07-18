@@ -19,6 +19,7 @@ export default class Type extends React.Component {
   }
 
   componentWillReceiveProps(props) {
+
     this.setState({
       type: props.params.type
     });
@@ -31,6 +32,8 @@ export default class Type extends React.Component {
       <div>
         <h2>{type}</h2>
         <TypeMatchup types={[type]} />
+        <hr className="ta-left" />
+        <h3>All {type} Pokémon</h3>
         <TypePokemon type={type} />
       </div>
     )

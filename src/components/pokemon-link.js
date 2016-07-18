@@ -9,7 +9,7 @@ export default class PokemonLink extends React.Component {
     const types = pokemon.Types
 
     return (
-      <Link to={`/pokemon/${name.toLowerCase()}`} className="pokemon">
+      <Link to={`/pokemon/${name}`} className="pokemon">
         #{number}
         <div>
           <span className={`pkspr pkmn-${name.toLowerCase()}`}></span>

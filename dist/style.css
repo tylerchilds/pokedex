@@ -1,12 +1,24 @@
+html{
+  font-size: 62.5%;
+}
 .pokemon{
   background-color: #f9f9f9;
   border: 1px solid #eee;
   border-radius: 4px;
+  box-sizing: border-box;
   display: inline-block;
   margin: 10px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
+  width: 200px;
+}
+
+.pokemon .type{
+  box-sizing: border-box;
+  padding: 0px 5px;
+  font-size: 1.2rem;
+  width: 60px;
 }
 
 a.pokemon:hover{
@@ -14,25 +26,42 @@ a.pokemon:hover{
   border-color: #e0e0e0;
 }
 
+a.pokemon:active{
+  color: #2e68cc;
+}
+
 .type{
   border-radius: 2px;
   color: #fff;
   display: inline-block;
-  margin: 0 5px;
+  margin: 5px;
   padding: 5px 10px;
+  width: 80px;
 }
 
-.type:link{
+@media (min-width: 960px){
+  .type{
+    width: 95px;
+  }
+}
+
+.type{
   color: #fff;
+  text-align: center;;
 }
 
-.type:hover,
-.type:focus{
+a.type:link{
+  color: #fff;
+  text-decoration: none;
+}
+
+a.type:hover,
+a.type:focus{
   color: #eee;
 }
 
-.type:visited,
-.type:active{
+a.type:visited,
+a.type:active{
   color: #fff;
 }
 .normal{
@@ -101,4 +130,8 @@ a.pokemon:hover{
 
 .steel{
   background-color: #B8B8D0;
+}
+
+.fairy{
+  background-color: #E0A0E6;
 }

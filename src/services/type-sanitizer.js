@@ -11,7 +11,7 @@ export default {
 
     for(let t of types){
       for(let type of ALL_TYPES){
-        if(t.toLowerCase() === type.name.toLowerCase()){
+        if(t === type.name){
           Array.prototype.push.apply(matchups.strengths, type.strengths)
           Array.prototype.push.apply(matchups.weaknesses, type.weaknesses)
           Array.prototype.push.apply(matchups.immunes, type.immunes)
@@ -19,6 +19,11 @@ export default {
       }
     }
 
+    matchups.strengths = [...new Set(matchups.strengths)]
+    matchups.weaknesses = [...new Set(matchups.weaknesses)]
+    matchups.immunes = [...new Set(matchups.immunes)]
+
     return matchups;
   }
+
 }
